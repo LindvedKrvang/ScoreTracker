@@ -1,0 +1,16 @@
+ion-card {
+  height: inherit;
+}
+
+ion-content {
+  --background: transparent;
+
+  ion-card {
+    --background: white;
+  }
+}
+
+
+ion-title {
+  padding-top: 5px;
+}

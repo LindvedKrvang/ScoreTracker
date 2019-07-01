@@ -1,0 +1,34 @@
+<app-header></app-header>
+<ion-content>
+    <ion-row>
+        <ion-col>
+            <ion-item (click)="addPlayer()">
+                <ion-label>
+                    Add a player
+                </ion-label>
+                <ion-icon name="add-circle-outline" color="primary" size="large"></ion-icon>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-list>
+        <ion-item lines="none" *ngIf="players?.length === 0">
+            <ion-text color="medium">
+                No players have been added yet. Go add some players :D
+            </ion-text>
+        </ion-item>
+        <ion-card *ngFor="let player of players">
+            <ion-card-content>
+                <ion-item lines="none">
+                    <ion-card-title color="medium">
+                        {{player.name}}
+                    </ion-card-title>
+                    <ion-icon name="create" slot="end" color="primary" (click)="editPlayerClicked(player)" size="large"></ion-icon>
+                    <ion-icon name="trash" slot="end" color="danger" (click)="deletePlayerClicked(player)" size="large"></ion-icon>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <div class="ion-padding">
+        <ion-button [routerLink]="['/score/overview']" class="button-bottom">Go to Overview</ion-button>
+    </div>
+</ion-content>

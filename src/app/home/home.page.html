@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<ion-content>
+    <ion-row class="ion-padding-top">
+        <ion-col>
+            <ion-item text-center lines="none">
+                <ion-label>
+                    <h1>
+                        Welcome to Score Board
+                    </h1>
+                </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-item lines="none">
+                <p>
+                    A quick and easy way to keep track of the score of any friendly game.
+                    Simply add the names of the participants and you're good to go.
+                </p>
+            </ion-item>
+        </ion-col>
+
+    </ion-row>
+    <div class="ion-padding">
+        <ion-button [routerLink]="['/core/players']" class="button-bottom">New Score Board</ion-button>
+    </div>
+</ion-content>
