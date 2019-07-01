@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Player} from '../../core/model/Player';
-import {ModalController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 import {ChangeScoreComponent} from '../change-score/change-score.component';
 import {ScoreService} from '../services/score.service';
 import {PlayerService} from '../../core/services/player.service';
@@ -17,7 +17,8 @@ export class OverviewComponent implements OnInit {
 
     constructor(private modalController: ModalController,
                 private scoreService: ScoreService,
-                private playerService: PlayerService) {
+                private playerService: PlayerService,
+                private navController: NavController) {
     }
 
     ngOnInit(): void {
@@ -28,7 +29,6 @@ export class OverviewComponent implements OnInit {
     }
 
     ionViewWillLeave(): void {
-        this.playerService.updateAllPlayers(this.players);
     }
 
     public async openAdScoreModal(player: Player): Promise<void> {
@@ -57,7 +57,12 @@ export class OverviewComponent implements OnInit {
             const {data} = await m.onDidDismiss();
             if (data) {
                 method(player, data.score);
+                this.playerService.updateAllPlayers(this.players);
             }
         });
+    }
+
+    goBack(): void {
+        this.navController.back();
     }
 }

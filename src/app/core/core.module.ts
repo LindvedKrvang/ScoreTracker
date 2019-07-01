@@ -6,7 +6,6 @@ import {RouterModule} from '@angular/router';
 import {SelectPlayersComponent} from './select-players/select-players.component';
 import {EditNameComponent} from './edit-name/edit-name.component';
 import {PlayerService} from './services/player.service';
-import {IonicStorageModule} from '@ionic/storage';
 
 @NgModule({
     entryComponents: [

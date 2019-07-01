@@ -25,10 +25,6 @@ export class SelectPlayersComponent implements OnInit {
         this.playerService.getAllPlayers().then(players => this.players = players);
     }
 
-    ionViewWillLeave(): void {
-        this.playerService.updateAllPlayers(this.players);
-    }
-
     public async addPlayer(): Promise<void> {
         const modal = await this.modalController.create({
             component: EditNameComponent,
@@ -40,8 +36,7 @@ export class SelectPlayersComponent implements OnInit {
         modal.present();
         const {data} = await modal.onDidDismiss();
         if (data) {
-            const player: Player = this.playerService.createPlayer(data.name);
-            this.players.push(player);
+            this.createPlayer(data.name);
         }
     }
 
@@ -80,12 +75,19 @@ export class SelectPlayersComponent implements OnInit {
         await alert.present();
     }
 
+    private createPlayer(name: string): void {
+        const player: Player = this.playerService.createPlayer(name);
+        this.players.push(player);
+        this.playerService.updateAllPlayers(this.players);
+    }
+
     private removePlayer(player: Player): void {
         const index = this.players.indexOf(player);
         if (index < 0) {
             return;
         }
         this.players.splice(index, 1);
+        this.playerService.updateAllPlayers(this.players);
     }
 
     private updatePlayer(player: Player): void {
@@ -94,5 +96,6 @@ export class SelectPlayersComponent implements OnInit {
             return;
         }
         this.players[index] = player;
+        this.playerService.updateAllPlayers(this.players);
     }
 }

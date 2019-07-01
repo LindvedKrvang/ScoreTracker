@@ -28,7 +28,10 @@
             </ion-card-content>
         </ion-card>
     </ion-list>
-    <div class="ion-padding">
-        <ion-button [routerLink]="['/score/overview']" class="button-bottom">Go to Overview</ion-button>
-    </div>
+
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button [routerLink]="['/score/overview']">
+            <ion-icon name="clipboard"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

@@ -21,7 +21,6 @@ export class PlayerService {
             score: 0
         };
         this.updateIdInDb();
-        console.log(this.idCounter);
         return player;
     }
 
