@@ -32,6 +32,11 @@ export class PlayerService {
         return this.storage.get(KEY_PLAYERS).then();
     }
 
+    public newGame(): void {
+        this.storage.clear();
+        this.updateAllPlayers([]);
+    }
+
     private updateIdInDb(): void {
         this.storage.set(KEY_ID_COUNTER, this.idCounter);
     }

@@ -21,9 +21,21 @@
                 </p>
             </ion-item>
         </ion-col>
-
     </ion-row>
-    <div class="ion-padding">
-        <ion-button [routerLink]="['/core/players']" class="button-bottom">New Score Board</ion-button>
-    </div>
+
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="information-circle-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list [side]="'top'">
+            <ion-fab-button [routerLink]="['/core/players']" (click)="newGame()">
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list [side]="'end'">
+            <ion-fab-button [routerLink]="['/core/players']">
+                <ion-icon name="fastforward"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>

@@ -1,6 +1,11 @@
 <app-header></app-header>
 <ion-content>
     <ion-list>
+        <ion-item lines="none" *ngIf="players?.length === 0">
+            <ion-text color="medium">
+                No players have been added yet. Go add some players :D
+            </ion-text>
+        </ion-item>
         <ion-card *ngFor="let player of players">
             <ion-card-content>
                 <ion-item lines="none">
