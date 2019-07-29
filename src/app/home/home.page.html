@@ -22,20 +22,15 @@
             </ion-item>
         </ion-col>
     </ion-row>
-
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-        <ion-fab-button>
-            <ion-icon name="information-circle-outline"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list [side]="'top'">
-            <ion-fab-button [routerLink]="['/core/players']" (click)="newGame()">
-                <ion-icon name="add"></ion-icon>
-            </ion-fab-button>
-        </ion-fab-list>
-        <ion-fab-list [side]="'end'" *ngIf="savedGameExist">
-            <ion-fab-button [routerLink]="['/core/players']">
-                <ion-icon name="fastforward"></ion-icon>
-            </ion-fab-button>
-        </ion-fab-list>
-    </ion-fab>
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button [disabled]="!savedGameExist" expand="block" [routerLink]="['/core/players']">
+            Continue game
+        </ion-button>
+        <br>
+        <ion-button expand="block" [routerLink]="['/core/players']" (click)="newGame()">
+            New game
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>
