@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PlayerService} from '../core/services/player.service';
 
 @Component({
@@ -6,9 +6,17 @@ import {PlayerService} from '../core/services/player.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+
+    private savedGameExist: boolean;
 
     constructor(private playerService: PlayerService) {
+    }
+
+    ngOnInit(): void {
+        this.playerService.doesSavedGameExist().then(value => {
+            this.savedGameExist = value;
+        });
     }
 
     newGame(): void {

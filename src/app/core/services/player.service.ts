@@ -37,6 +37,12 @@ export class PlayerService {
         this.updateAllPlayers([]);
     }
 
+    public doesSavedGameExist(): Promise<boolean> {
+        return this.storage.get(KEY_PLAYERS).then(value => {
+            return value != null;
+        });
+    }
+
     private updateIdInDb(): void {
         this.storage.set(KEY_ID_COUNTER, this.idCounter);
     }

@@ -32,7 +32,7 @@
                 <ion-icon name="add"></ion-icon>
             </ion-fab-button>
         </ion-fab-list>
-        <ion-fab-list [side]="'end'">
+        <ion-fab-list [side]="'end'" *ngIf="savedGameExist">
             <ion-fab-button [routerLink]="['/core/players']">
                 <ion-icon name="fastforward"></ion-icon>
             </ion-fab-button>
