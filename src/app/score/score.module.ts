@@ -5,20 +5,22 @@ import {OverviewComponent} from './overview/overview.component';
 import {CoreModule} from '../core/core.module';
 import {IonicModule} from '@ionic/angular';
 import {ChangeScoreComponent} from './change-score/change-score.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [OverviewComponent, ChangeScoreComponent],
   entryComponents: [ChangeScoreComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: 'overview',
-        component: OverviewComponent
-      }
-    ]),
-    CoreModule,
-    IonicModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: 'overview',
+                component: OverviewComponent
+            }
+        ]),
+        CoreModule,
+        IonicModule,
+        FormsModule
+    ],
 })
 export class ScoreModule { }

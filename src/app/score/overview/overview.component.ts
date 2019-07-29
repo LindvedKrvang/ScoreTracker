@@ -14,6 +14,7 @@ import {PlayerService} from '../../core/services/player.service';
 export class OverviewComponent implements OnInit {
 
     private players: Player[] = [];
+    private sortByScore: boolean = false;
 
     constructor(private modalController: ModalController,
                 private scoreService: ScoreService,
@@ -64,5 +65,11 @@ export class OverviewComponent implements OnInit {
 
     goBack(): void {
         this.navController.back();
+    }
+
+    toggleSortByScore(): void {
+        let sort: (a: Player, b: Player) => number;
+        sort = !this.sortByScore ? ((a, b) => b.score - a.score) : ((a, b) => a.id - b.id);
+        this.players.sort(sort);
     }
 }
