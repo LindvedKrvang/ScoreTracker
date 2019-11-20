@@ -2,7 +2,7 @@
   <ion-card>
     <ion-title (click)="closeModal()">{{title}}</ion-title>
     <ion-item lines="none">
-      <ion-input #input type="text" [value]="player?.name" placeholder="Enter name..." [autofocus]="true"></ion-input>
+      <ion-input #input type="text" [value]="player?.name" placeholder="Enter name..."></ion-input>
       <ion-icon name="checkmark" slot="end" color="primary" (click)="submit(input.value)" size="large"></ion-icon>
       <ion-icon name="close" slot="end" color="danger" (click)="cancel()" size="large"></ion-icon>
     </ion-item>

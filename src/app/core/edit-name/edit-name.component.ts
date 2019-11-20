@@ -1,13 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Player} from '../model/Player';
-import {ModalController} from '@ionic/angular';
+import {IonInput, ModalController} from '@ionic/angular';
+import {Keyboard} from '@ionic-native/keyboard/ngx';
 
 @Component({
     selector: 'app-edit-name',
     templateUrl: './edit-name.component.html',
     styleUrls: ['./edit-name.component.scss'],
+    providers: [Keyboard]
 })
 export class EditNameComponent implements OnInit {
+
+    @ViewChild('input') input: IonInput;
 
     @Input()
     public title: string;
@@ -15,10 +19,17 @@ export class EditNameComponent implements OnInit {
     @Input()
     public player: Player;
 
-    constructor(private modalController: ModalController) {
+    constructor(private modalController: ModalController,
+                private keyboard: Keyboard) {
     }
 
     ngOnInit(): void {
+
+    }
+
+    ionViewDidEnter(): void {
+        this.input.setFocus();
+        this.keyboard.show();
     }
 
     async closeModal(): Promise<void> {

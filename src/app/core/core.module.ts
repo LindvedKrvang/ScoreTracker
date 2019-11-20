@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {SelectPlayersComponent} from './select-players/select-players.component';
 import {EditNameComponent} from './edit-name/edit-name.component';
 import {PlayerService} from './services/player.service';
+import {Keyboard} from '@ionic-native/keyboard';
 
 @NgModule({
     entryComponents: [
