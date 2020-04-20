@@ -2,7 +2,6 @@ import {TestBed} from '@angular/core/testing';
 
 import {ScoreService} from './score.service';
 import {Player} from '../../core/model/Player';
-import {ErrorService} from '../../core/services/error.service';
 
 describe('ScoreService', () => {
 
@@ -16,7 +15,7 @@ describe('ScoreService', () => {
         player = {
             name: 'Bob',
             score: 10
-        };
+        } as Player;
     });
 
     it('should be created', () => {

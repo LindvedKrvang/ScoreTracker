@@ -1,27 +1,38 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SelectPlayersComponent } from './select-players.component';
+import {SelectPlayersComponent} from './select-players.component';
+import {AngularDelegate, ModalController} from '@ionic/angular';
+import {PlayerService} from '../services/player.service';
+import {PlayerServiceStub} from '../services/player.service.stub';
 
 describe('SelectPlayersComponent', () => {
-  let component: SelectPlayersComponent;
-  let fixture: ComponentFixture<SelectPlayersComponent>;
+    let component: SelectPlayersComponent;
+    let fixture: ComponentFixture<SelectPlayersComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SelectPlayersComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [SelectPlayersComponent],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            providers: [
+                {
+                    provide: PlayerService,
+                    useClass: PlayerServiceStub
+                },
+                ModalController,
+                AngularDelegate
+            ]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SelectPlayersComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SelectPlayersComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
