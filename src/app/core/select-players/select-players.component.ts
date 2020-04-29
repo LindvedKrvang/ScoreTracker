@@ -13,6 +13,8 @@ import {Game} from '../../shared/model/Game';
 })
 export class SelectPlayersComponent implements OnInit {
 
+    public game: Game;
+
     private players: Player[] = [];
 
     constructor(private alertController: AlertController,
@@ -23,7 +25,7 @@ export class SelectPlayersComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const game: Game = this.route.snapshot.data.game;
+        this.game = this.route.snapshot.data.game;
     }
 
     ionViewWillEnter(): void {
@@ -78,6 +80,13 @@ export class SelectPlayersComponent implements OnInit {
             ]
         });
         await alert.present();
+    }
+
+    get isRequiredPlayers(): boolean {
+        if (!!this.game.requiredPlayers) {
+            return this.players.length === this.game.requiredPlayers;
+        }
+        return true;
     }
 
     private createPlayer(name: string): void {
