@@ -1,20 +1,19 @@
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {OverviewComponent} from './overview.component';
-import {PlayerService} from '../../core/services/player.service';
-import {PlayerServiceStub} from '../../core/services/player.service.stub';
+import {ChangeScoreComponent} from './change-score.component';
+import {PlayerService} from '../../../core/services/player.service';
+import {PlayerServiceStub} from '../../../core/services/player.service.stub';
 import {AngularDelegate, ModalController} from '@ionic/angular';
-import {RouterTestingModule} from '@angular/router/testing';
+import {mockPlayers} from '../../../shared/model/Player';
 
-describe('OverviewComponent', () => {
-    let component: OverviewComponent;
-    let fixture: ComponentFixture<OverviewComponent>;
+describe('ChangeScoreComponent', () => {
+    let component: ChangeScoreComponent;
+    let fixture: ComponentFixture<ChangeScoreComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [RouterTestingModule],
-            declarations: [OverviewComponent],
+            declarations: [ChangeScoreComponent],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
             providers: [
                 {
@@ -29,8 +28,9 @@ describe('OverviewComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(OverviewComponent);
+        fixture = TestBed.createComponent(ChangeScoreComponent);
         component = fixture.componentInstance;
+        component.player = mockPlayers[0];
         fixture.detectChanges();
     });
 

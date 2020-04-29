@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
 import {ScoreService} from './score.service';
-import {Player} from '../../core/model/Player';
+import {Player} from '../../shared/model/Player';
 
 describe('ScoreService', () => {
 

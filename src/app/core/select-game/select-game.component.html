@@ -1,0 +1,19 @@
+<app-header></app-header>
+<ion-content>
+    <ion-row class="ion-padding-top">
+        <ion-col>
+            <ion-item text-center lines="none">
+                <ion-label>
+                    <h1>
+                        Select a game to play
+                    </h1>
+                </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-toolbar>
+        <ion-button expand="block" *ngFor="let gameOption of gameOptions" [routerLink]="gameOption.route">
+            {{gameOption.game.name}}
+        </ion-button>
+    </ion-toolbar>
+</ion-content>

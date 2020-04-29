@@ -6,7 +6,9 @@ import {RouterModule} from '@angular/router';
 import {SelectPlayersComponent} from './select-players/select-players.component';
 import {EditNameComponent} from './edit-name/edit-name.component';
 import {PlayerService} from './services/player.service';
-import {Keyboard} from '@ionic-native/keyboard';
+import {SelectGameComponent} from './select-game/select-game.component';
+import {GameResolver} from './resolves/GameResolver';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
     entryComponents: [
@@ -15,23 +17,38 @@ import {Keyboard} from '@ionic-native/keyboard';
     declarations: [
         HeaderComponent,
         SelectPlayersComponent,
+        SelectGameComponent,
         EditNameComponent
     ],
     imports: [
         CommonModule,
         RouterModule.forChild([
             {
-                path: 'players',
-                component: SelectPlayersComponent
+                path: 'selectGame',
+                component: SelectGameComponent
+            },
+            {
+                path: 'games/:gameName',
+                resolve: {
+                    game: GameResolver
+                },
+                children: [
+                    {
+                        path: 'players',
+                        component: SelectPlayersComponent
+                    }
+                ]
             }
         ]),
-        IonicModule
+        IonicModule,
+        SharedModule
     ],
     exports: [
         HeaderComponent,
     ],
     providers: [
-        PlayerService
+        PlayerService,
+        GameResolver
     ]
 })
 export class CoreModule {

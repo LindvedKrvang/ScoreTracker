@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {IonInput, ModalController} from '@ionic/angular';
-import {Player} from '../../core/model/Player';
+import {Player} from '../../../shared/model/Player';
 import {Keyboard} from '@ionic-native/keyboard/ngx';
 
 
