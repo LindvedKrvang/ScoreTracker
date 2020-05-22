@@ -1,15 +1,17 @@
 import {TestBed} from '@angular/core/testing';
 
 import {PlayerService} from './player.service';
-import {PlayerServiceStub} from './player.service.stub';
+import {Storage} from '@ionic/storage';
+import {StorageStub} from '../mocks/storage.stub';
 
-describe('StorageService', () => {
+describe('PlayerService', () => {
     beforeEach(() => TestBed.configureTestingModule({
         providers: [
             {
-                provide: PlayerService,
-                useClass: PlayerServiceStub
-            }
+                provide: Storage,
+                useClass: StorageStub
+            },
+            PlayerService
         ]
     }));
 

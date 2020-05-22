@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ChangeScoreComponent} from './change-score.component';
 import {PlayerService} from '../../../core/services/player.service';
-import {PlayerServiceStub} from '../../../core/services/player.service.stub';
+import {PlayerServiceStub} from '../../../core/mocks/player.service.stub';
 import {AngularDelegate, ModalController} from '@ionic/angular';
 import {mockPlayers} from '../../../shared/model/Player';
 
