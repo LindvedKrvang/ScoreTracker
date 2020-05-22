@@ -8,7 +8,7 @@ const KEY_ID_COUNTER = 'KEY_ID_COUNTER';
 @Injectable()
 export class PlayerService {
 
-    private idCounter: number;
+    private idCounter: number = 0;
 
     constructor(private storage: Storage) {
         this.storage.get(KEY_ID_COUNTER).then(id => id ? this.idCounter = id : this.idCounter = 0);
