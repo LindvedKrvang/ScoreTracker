@@ -4,9 +4,9 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {SelectPlayersComponent} from './select-players.component';
 import {AngularDelegate, ModalController} from '@ionic/angular';
 import {PlayerService} from '../services/player.service';
-import {PlayerServiceStub} from '../mocks/player.service.stub';
 import {ActivatedRoute} from '@angular/router';
-import {ActivatedRouteStub} from '../mocks/activated.route.stub';
+import {ActivatedRouteMock} from '../mocks/activated-route.mock';
+import {PlayerServiceMock} from '../mocks/player.service.mock';
 
 describe('SelectPlayersComponent', () => {
     let component: SelectPlayersComponent;
@@ -19,13 +19,13 @@ describe('SelectPlayersComponent', () => {
             providers: [
                 {
                     provide: PlayerService,
-                    useClass: PlayerServiceStub
+                    useClass: PlayerServiceMock
                 },
                 ModalController,
                 AngularDelegate,
                 {
                     provide: ActivatedRoute,
-                    useClass: ActivatedRouteStub
+                    useClass: ActivatedRouteMock
                 }
             ]
         })

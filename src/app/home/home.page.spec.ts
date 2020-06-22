@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {HomePage} from './home.page';
 import {PlayerService} from '../core/services/player.service';
-import {PlayerServiceStub} from '../core/mocks/player.service.stub';
+import {PlayerServiceMock} from '../core/mocks/player.service.mock';
 
 describe('HomePage', () => {
     let component: HomePage;
@@ -16,7 +16,7 @@ describe('HomePage', () => {
             providers: [
                 {
                     provide: PlayerService,
-                    useClass: PlayerServiceStub
+                    useClass: PlayerServiceMock
                 }
             ]
         })

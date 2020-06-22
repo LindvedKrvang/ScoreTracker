@@ -1,6 +1,6 @@
 import {of} from 'rxjs';
 
-export class StorageStub {
+export class StorageMock {
 
     public get(key: string): Promise<any> {
         return of(1).toPromise();

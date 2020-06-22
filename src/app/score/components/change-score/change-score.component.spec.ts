@@ -3,9 +3,9 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ChangeScoreComponent} from './change-score.component';
 import {PlayerService} from '../../../core/services/player.service';
-import {PlayerServiceStub} from '../../../core/mocks/player.service.stub';
 import {AngularDelegate, ModalController} from '@ionic/angular';
 import {mockPlayers} from '../../../shared/model/Player';
+import {PlayerServiceMock} from '../../../core/mocks/player.service.mock';
 
 describe('ChangeScoreComponent', () => {
     let component: ChangeScoreComponent;
@@ -18,7 +18,7 @@ describe('ChangeScoreComponent', () => {
             providers: [
                 {
                     provide: PlayerService,
-                    useClass: PlayerServiceStub
+                    useClass: PlayerServiceMock
                 },
                 ModalController,
                 AngularDelegate

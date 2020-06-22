@@ -7,8 +7,8 @@ import {SelectPlayersComponent} from './select-players/select-players.component'
 import {EditNameComponent} from './edit-name/edit-name.component';
 import {PlayerService} from './services/player.service';
 import {SelectGameComponent} from './select-game/select-game.component';
-import {GameResolver} from './resolves/GameResolver';
 import {SharedModule} from '../shared/shared.module';
+import {GameResolver} from './resolves/game.resolver';
 
 @NgModule({
     entryComponents: [

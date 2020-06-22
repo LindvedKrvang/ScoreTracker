@@ -2,9 +2,9 @@ import {TestBed} from '@angular/core/testing';
 
 import {PlayerService} from './player.service';
 import {Storage} from '@ionic/storage';
-import {StorageStub} from '../mocks/storage.stub';
 import {mockPlayers, Player} from '../../shared/model/Player';
 import {of} from 'rxjs';
+import {StorageMock} from '../mocks/storage.mock';
 
 describe('PlayerService', () => {
     let service: PlayerService;
@@ -14,7 +14,7 @@ describe('PlayerService', () => {
             providers: [
                 {
                     provide: Storage,
-                    useClass: StorageStub
+                    useClass: StorageMock
                 },
                 PlayerService
             ]

@@ -1,7 +1,7 @@
 import {mockPlayers, Player} from '../../shared/model/Player';
 import {of} from 'rxjs';
 
-export class PlayerServiceStub {
+export class PlayerServiceMock {
 
     public createPlayer(): Player {
         return mockPlayers[0];
