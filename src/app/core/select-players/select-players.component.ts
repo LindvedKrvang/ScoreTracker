@@ -14,8 +14,7 @@ import {Game} from '../../shared/model/Game';
 export class SelectPlayersComponent implements OnInit {
 
     public game: Game;
-
-    private players: Player[] = [];
+    public players: Player[] = [];
 
     constructor(private alertController: AlertController,
                 private modalController: ModalController,
@@ -87,6 +86,13 @@ export class SelectPlayersComponent implements OnInit {
             return this.players.length === this.game.requiredPlayers;
         }
         return true;
+    }
+
+    get isMaxNumberOfPlayers(): boolean {
+        if (!!this.game.requiredPlayers) {
+            return this.players.length === this.game.requiredPlayers;
+        }
+        return false;
     }
 
     private createPlayer(name: string): void {

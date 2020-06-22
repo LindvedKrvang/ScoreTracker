@@ -1,8 +1,8 @@
-<app-header></app-header>
+<app-header [title]="game.name"></app-header>
 <ion-content>
     <ion-row>
         <ion-col>
-            <ion-item (click)="addPlayer()">
+            <ion-item (click)="addPlayer()" [disabled]="isMaxNumberOfPlayers">
                 <ion-label>
                     Add a player
                 </ion-label>
@@ -18,7 +18,12 @@
         </ion-item>
         <ion-item *ngIf="!!game.requiredPlayers" lines="none">
             <ion-text color="medium">
-                You need {{game.requiredPlayers}} players to play {{game.name}}
+                <ng-container *ngIf="!isMaxNumberOfPlayers; else enoughPlayers">
+                    You need {{game.requiredPlayers}} players to play a game of {{game.name}}
+                </ng-container>
+                <ng-template #enoughPlayers>
+                    You have all {{game.requiredPlayers}} players to start playing
+                </ng-template>
             </ion-text>
         </ion-item>
         <ion-card *ngFor="let player of players">

@@ -10,7 +10,7 @@ export enum GameType {
 }
 
 export const ScoreBoard: Game = {
-    name: 'Score board',
+    name: 'Score Board',
     gameType: GameType.SCORE_BOARD
 };
 
