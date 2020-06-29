@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AlertController, ModalController} from '@ionic/angular';
 import {Player} from '../../shared/model/Player';
 import {EditNameComponent} from '../edit-name/edit-name.component';
-import {PlayerService} from '../services/player.service';
+import {PlayerService} from '../../shared/services/player.service';
 import {ActivatedRoute} from '@angular/router';
 import {Game} from '../../shared/model/Game';
 

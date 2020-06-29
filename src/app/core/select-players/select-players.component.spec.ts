@@ -3,10 +3,10 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SelectPlayersComponent} from './select-players.component';
 import {AngularDelegate, ModalController} from '@ionic/angular';
-import {PlayerService} from '../services/player.service';
+import {PlayerService} from '../../shared/services/player.service';
 import {ActivatedRoute} from '@angular/router';
-import {ActivatedRouteMock} from '../mocks/activated-route.mock';
-import {PlayerServiceMock} from '../mocks/player.service.mock';
+import {ActivatedRouteMock} from '../../shared/mocks/activated-route.mock';
+import {PlayerServiceMock} from '../../shared/mocks/player.service.mock';
 
 describe('SelectPlayersComponent', () => {
     let component: SelectPlayersComponent;

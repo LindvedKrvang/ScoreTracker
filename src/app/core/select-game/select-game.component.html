@@ -12,8 +12,8 @@
         </ion-col>
     </ion-row>
     <ion-toolbar>
-        <ion-button expand="block" *ngFor="let gameOption of gameOptions" [routerLink]="gameOption.route">
-            {{gameOption.game.name}}
+        <ion-button expand="block" *ngFor="let game of games" (click)="selectGame(game)">
+            {{game.name}}
         </ion-button>
     </ion-toolbar>
 </ion-content>

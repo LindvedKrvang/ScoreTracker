@@ -19,3 +19,8 @@ export const Whist: Game = {
     gameType: GameType.WHIST,
     requiredPlayers: 4
 };
+
+export const GAMES: Game[] = [
+    ScoreBoard,
+    Whist
+];

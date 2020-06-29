@@ -2,7 +2,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {PlayerService} from './player.service';
 import {Storage} from '@ionic/storage';
-import {mockPlayers, Player} from '../../shared/model/Player';
+import {mockPlayers, Player} from '../model/Player';
 import {of} from 'rxjs';
 import {StorageMock} from '../mocks/storage.mock';
 

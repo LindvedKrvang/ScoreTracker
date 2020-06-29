@@ -4,11 +4,11 @@ import {Game, ScoreBoard, Whist} from '../../shared/model/Game';
 export class GameResolver implements Resolve<Game> {
 
     public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Game {
-        const gameName: string = route.paramMap.get('gameName');
-        switch (gameName) {
-            case ScoreBoard.name:
+        const gameType: string = route.paramMap.get('gameType');
+        switch (gameType) {
+            case ScoreBoard.gameType:
                 return ScoreBoard;
-            case Whist.name:
+            case Whist.gameType:
                 return Whist;
         }
     }

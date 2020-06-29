@@ -10,7 +10,11 @@ describe('ScoreService', () => {
     let player: Player;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        TestBed.configureTestingModule({
+            providers: [
+                ScoreService
+            ]
+        });
         service = TestBed.get(ScoreService);
         player = {
             name: 'Bob',

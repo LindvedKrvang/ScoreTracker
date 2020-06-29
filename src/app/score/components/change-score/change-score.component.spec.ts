@@ -2,10 +2,10 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ChangeScoreComponent} from './change-score.component';
-import {PlayerService} from '../../../core/services/player.service';
+import {PlayerService} from '../../../shared/services/player.service';
 import {AngularDelegate, ModalController} from '@ionic/angular';
 import {mockPlayers} from '../../../shared/model/Player';
-import {PlayerServiceMock} from '../../../core/mocks/player.service.mock';
+import {PlayerServiceMock} from '../../../shared/mocks/player.service.mock';
 
 describe('ChangeScoreComponent', () => {
     let component: ChangeScoreComponent;

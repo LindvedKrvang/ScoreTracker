@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {PlayerService} from '../core/services/player.service';
+import {PlayerService} from '../shared/services/player.service';
+import {GameService} from '../shared/services/game.service';
+import {Game} from '../shared/model/Game';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +10,14 @@ import {PlayerService} from '../core/services/player.service';
 })
 export class HomePage implements OnInit {
 
-    private savedGameExist: boolean;
+    public loadedGame: Game;
 
-    constructor(private playerService: PlayerService) {
+    constructor(private playerService: PlayerService,
+                private gameService: GameService) {
     }
 
     ngOnInit(): void {
-        this.playerService.doesSavedGameExist().then(value => {
-            this.savedGameExist = value;
-        });
+        this.gameService.loadSavedGame().then(loadedGame => this.loadedGame = loadedGame);
     }
 
     newGame(): void {

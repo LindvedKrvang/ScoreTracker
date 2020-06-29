@@ -1,5 +1,5 @@
 import {ActivatedRouteSnapshot} from '@angular/router/src/router_state';
-import {ScoreBoard} from '../../shared/model/Game';
+import {ScoreBoard} from '../model/Game';
 import {convertToParamMap, Data, ParamMap} from '@angular/router';
 
 export class ActivatedRouteMock {
@@ -11,6 +11,6 @@ export class ActivatedRouteMock {
     } as ActivatedRouteSnapshot;
 
     public paramMap: ParamMap = convertToParamMap({
-        gameName: ScoreBoard.name
+        gameType: ScoreBoard.gameType
     });
 }

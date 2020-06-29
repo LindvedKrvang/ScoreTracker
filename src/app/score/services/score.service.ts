@@ -1,10 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Player} from '../../shared/model/Player';
-import {ErrorService} from '../../core/services/error.service';
+import {ErrorService} from '../../shared/services/error.service';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class ScoreService {
 
     constructor() {

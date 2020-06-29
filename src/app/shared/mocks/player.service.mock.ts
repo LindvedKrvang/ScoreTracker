@@ -1,4 +1,4 @@
-import {mockPlayers, Player} from '../../shared/model/Player';
+import {mockPlayers, Player} from '../model/Player';
 import {of} from 'rxjs';
 
 export class PlayerServiceMock {

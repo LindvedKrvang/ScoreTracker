@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Game, GameType, ScoreBoard, Whist} from '../../shared/model/Game';
+import {Game, GAMES} from '../../shared/model/Game';
+import {GameService} from '../../shared/services/game.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,26 +11,18 @@ import {Game, GameType, ScoreBoard, Whist} from '../../shared/model/Game';
 })
 export class SelectGameComponent implements OnInit {
 
-    public gameOptions: GameOption[] = [
-        {
-            game: ScoreBoard,
-            route: `/core/games/${ScoreBoard.name}/players`
-        },
-        {
-            game: Whist,
-            route: `/core/games/${Whist.name}/players`
-        }
-    ];
+    public games: Game[] = GAMES;
 
-    constructor() {
+    constructor(private gameService: GameService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
     }
 
-}
+    public selectGame(game: Game): void {
+        this.gameService.saveSelectedGame(game);
+        this.router.navigate(['core', 'games', game.gameType, 'players']);
+    }
 
-interface GameOption {
-    route: string;
-    game: Game;
 }

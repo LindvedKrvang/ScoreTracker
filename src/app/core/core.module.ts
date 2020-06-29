@@ -5,7 +5,6 @@ import {IonicModule} from '@ionic/angular';
 import {RouterModule} from '@angular/router';
 import {SelectPlayersComponent} from './select-players/select-players.component';
 import {EditNameComponent} from './edit-name/edit-name.component';
-import {PlayerService} from './services/player.service';
 import {SelectGameComponent} from './select-game/select-game.component';
 import {SharedModule} from '../shared/shared.module';
 import {GameResolver} from './resolves/game.resolver';
@@ -28,7 +27,7 @@ import {GameResolver} from './resolves/game.resolver';
                 component: SelectGameComponent
             },
             {
-                path: 'games/:gameName',
+                path: 'games/:gameType',
                 resolve: {
                     game: GameResolver
                 },
@@ -45,10 +44,6 @@ import {GameResolver} from './resolves/game.resolver';
     ],
     exports: [
         HeaderComponent,
-    ],
-    providers: [
-        PlayerService,
-        GameResolver
     ]
 })
 export class CoreModule {

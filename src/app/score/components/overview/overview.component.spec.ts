@@ -2,14 +2,17 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {OverviewComponent} from './overview.component';
-import {PlayerService} from '../../../core/services/player.service';
+import {PlayerService} from '../../../shared/services/player.service';
 import {AngularDelegate, ModalController} from '@ionic/angular';
 import {RouterTestingModule} from '@angular/router/testing';
-import {PlayerServiceMock} from '../../../core/mocks/player.service.mock';
+import {PlayerServiceMock} from '../../../shared/mocks/player.service.mock';
+import {ScoreService} from '../../services/score.service';
 
 describe('OverviewComponent', () => {
     let component: OverviewComponent;
     let fixture: ComponentFixture<OverviewComponent>;
+
+    const mockScoreService = {};
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -21,11 +24,14 @@ describe('OverviewComponent', () => {
                     provide: PlayerService,
                     useClass: PlayerServiceMock
                 },
+                {
+                    provide: ScoreService,
+                    useValue: mockScoreService
+                },
                 ModalController,
                 AngularDelegate
             ]
-        })
-            .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {

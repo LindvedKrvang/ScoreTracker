@@ -3,7 +3,7 @@ import {Player} from '../../../shared/model/Player';
 import {ModalController, NavController} from '@ionic/angular';
 import {ChangeScoreComponent} from '../change-score/change-score.component';
 import {ScoreService} from '../../services/score.service';
-import {PlayerService} from '../../../core/services/player.service';
+import {PlayerService} from '../../../shared/services/player.service';
 
 
 @Component({
@@ -13,8 +13,8 @@ import {PlayerService} from '../../../core/services/player.service';
 })
 export class OverviewComponent implements OnInit {
 
-    private players: Player[] = [];
-    private sortByScore: boolean = false;
+    public players: Player[] = [];
+    public sortByScore: boolean = false;
 
     constructor(private modalController: ModalController,
                 private scoreService: ScoreService,

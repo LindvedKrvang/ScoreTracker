@@ -25,7 +25,7 @@
 </ion-content>
 <ion-footer>
     <ion-toolbar>
-        <ion-button [disabled]="!savedGameExist" expand="block" [routerLink]="['/core/players']">
+        <ion-button [disabled]="!loadedGame" expand="block" [routerLink]="['/core/games/' + loadedGame?.gameType + '/players']">
             Continue game
         </ion-button>
         <br>

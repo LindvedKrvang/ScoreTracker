@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Player} from '../../shared/model/Player';
+import {Player} from '../model/Player';
 import {Storage} from '@ionic/storage';
 
 const KEY_PLAYERS = 'KEY_PLAYERS';
