@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
 import {PlayerService} from '../shared/services/player.service';
 import {GameService} from '../shared/services/game.service';
 import {Game} from '../shared/model/Game';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',

@@ -1,7 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Player} from '../../shared/model/Player';
-import {IonInput, ModalController} from '@ionic/angular';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Keyboard} from '@ionic-native/keyboard/ngx';
+import {IonInput, ModalController} from '@ionic/angular';
 
 @Component({
     selector: 'app-edit-name',
@@ -11,7 +11,7 @@ import {Keyboard} from '@ionic-native/keyboard/ngx';
 })
 export class EditNameComponent implements OnInit {
 
-    @ViewChild('input') input: IonInput;
+    @ViewChild('input', { static: true }) input: IonInput;
 
     @Input()
     public title: string;

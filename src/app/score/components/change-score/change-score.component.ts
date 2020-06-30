@@ -1,7 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {IonInput, ModalController} from '@ionic/angular';
 import {Player} from '../../../shared/model/Player';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Keyboard} from '@ionic-native/keyboard/ngx';
+import {IonInput, ModalController} from '@ionic/angular';
 
 
 @Component({
@@ -12,7 +12,7 @@ import {Keyboard} from '@ionic-native/keyboard/ngx';
 })
 export class ChangeScoreComponent implements OnInit {
 
-    @ViewChild('score') input: IonInput;
+    @ViewChild('score', { static: true }) input: IonInput;
 
     @Input()
     public player: Player;
