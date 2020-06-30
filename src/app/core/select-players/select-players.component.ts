@@ -3,8 +3,8 @@ import {AlertController, ModalController} from '@ionic/angular';
 import {Player} from '../../shared/model/Player';
 import {EditNameComponent} from '../edit-name/edit-name.component';
 import {PlayerService} from '../../shared/services/player.service';
-import {ActivatedRoute} from '@angular/router';
-import {Game} from '../../shared/model/Game';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Game, ScoreBoard, Whist} from '../../shared/model/Game';
 
 @Component({
     selector: 'app-select-players',
@@ -19,7 +19,8 @@ export class SelectPlayersComponent implements OnInit {
     constructor(private alertController: AlertController,
                 private modalController: ModalController,
                 private playerService: PlayerService,
-                private route: ActivatedRoute
+                private route: ActivatedRoute,
+                private router: Router
     ) {
     }
 
@@ -117,5 +118,9 @@ export class SelectPlayersComponent implements OnInit {
         }
         this.players[index] = player;
         this.playerService.updateAllPlayers(this.players);
+    }
+
+    public navigateToSelectedGame(): void {
+        this.router.navigate([this.game.gameType]);
     }
 }

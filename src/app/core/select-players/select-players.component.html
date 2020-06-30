@@ -40,7 +40,7 @@
     </ion-list>
 
     <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-        <ion-fab-button [routerLink]="['/score/overview']" [disabled]="!isRequiredPlayers">
+        <ion-fab-button [disabled]="!isRequiredPlayers" (click)="navigateToSelectedGame()">
             <ion-icon name="clipboard"></ion-icon>
         </ion-fab-button>
     </ion-fab>

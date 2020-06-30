@@ -15,7 +15,7 @@ import {ScoreService} from './services/score.service';
         CommonModule,
         RouterModule.forChild([
             {
-                path: 'overview',
+                path: '',
                 component: OverviewComponent
             }
         ]),
