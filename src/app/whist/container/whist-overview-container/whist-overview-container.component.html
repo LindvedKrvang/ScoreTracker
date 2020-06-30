@@ -1,3 +1,23 @@
-<p>
-  whist-overview-container works!
-</p>
+<app-header [title]="game.name"></app-header>
+<ion-content>
+    <ion-list>
+        <ion-card *ngFor="let player of players">
+            <ion-card-content>
+                <ion-item lines="none">
+                    <ion-card-title color="medium">
+                        {{player.name}}
+                    </ion-card-title>
+                    <ion-label class="score-label" slot="end" [color]="player.score < 0 ? 'danger' : ''">
+                        {{player.score}}
+                    </ion-label>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button>
+            <ion-icon name="calculator-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

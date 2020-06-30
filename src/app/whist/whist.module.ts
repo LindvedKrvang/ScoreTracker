@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {WhistOverviewContainerComponent} from './container/whist-overview-container/whist-overview-container.component';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
+import {CoreModule} from '../core/core.module';
+import {IonicModule} from '@ionic/angular';
 
 @NgModule({
     declarations: [
@@ -16,7 +18,9 @@ import {SharedModule} from '../shared/shared.module';
                 component: WhistOverviewContainerComponent
             }
         ]),
-        SharedModule
+        SharedModule,
+        CoreModule,
+        IonicModule
     ]
 })
 export class WhistModule {

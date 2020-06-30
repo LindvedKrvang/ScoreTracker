@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
 import {GameResolver} from './game.resolver';
 import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {RouterStateSnapshotMock} from '../../shared/mocks/router-state-snapshot.mock';
-import {ActivatedRouteMock} from '../../shared/mocks/activated-route.mock';
-import {Game, ScoreBoard, Whist} from '../../shared/model/Game';
+import {RouterStateSnapshotMock} from '../mocks/router-state-snapshot.mock';
+import {ActivatedRouteMock} from '../mocks/activated-route.mock';
+import {Game, ScoreBoard, Whist} from '../model/Game';
 
 describe('GameResolver', () => {
 

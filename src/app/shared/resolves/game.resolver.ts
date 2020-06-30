@@ -1,5 +1,5 @@
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {Game, ScoreBoard, Whist} from '../../shared/model/Game';
+import {Game, ScoreBoard, Whist} from '../model/Game';
 
 export class GameResolver implements Resolve<Game> {
 

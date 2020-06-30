@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Game, Whist} from '../../../shared/model/Game';
+import {Player} from '../../../shared/model/Player';
+import {PlayerService} from '../../../shared/services/player.service';
 
 @Component({
     selector: 'app-whist-overview-container',
@@ -7,10 +10,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class WhistOverviewContainerComponent implements OnInit {
 
-    constructor() {
+    public game: Game = Whist;
+    public players: Player[] = [];
+
+    constructor(private playerService: PlayerService) {
     }
 
     public ngOnInit(): void {
+        this.playerService.getAllPlayers().then(players => this.players = players);
     }
 
 }

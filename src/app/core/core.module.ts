@@ -1,20 +1,19 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HeaderComponent} from './header/header.component';
+import {HeaderComponent} from '../shared/components/header/header.component';
 import {IonicModule} from '@ionic/angular';
 import {RouterModule} from '@angular/router';
 import {SelectPlayersComponent} from './select-players/select-players.component';
 import {EditNameComponent} from './edit-name/edit-name.component';
 import {SelectGameComponent} from './select-game/select-game.component';
 import {SharedModule} from '../shared/shared.module';
-import {GameResolver} from './resolves/game.resolver';
+import {GameResolver} from '../shared/resolves/game.resolver';
 
 @NgModule({
     entryComponents: [
         EditNameComponent
     ],
     declarations: [
-        HeaderComponent,
         SelectPlayersComponent,
         SelectGameComponent,
         EditNameComponent
