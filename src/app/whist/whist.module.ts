@@ -5,10 +5,13 @@ import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
 import {CoreModule} from '../core/core.module';
 import {IonicModule} from '@ionic/angular';
+import {CalculateWhistScoreComponent} from './components/calculate-whist-score/calculate-whist-score.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
-        WhistOverviewContainerComponent
+        WhistOverviewContainerComponent,
+        CalculateWhistScoreComponent
     ],
     imports: [
         CommonModule,
@@ -16,11 +19,16 @@ import {IonicModule} from '@ionic/angular';
             {
                 path: '',
                 component: WhistOverviewContainerComponent
+            },
+            {
+                path: 'calculate',
+                component: CalculateWhistScoreComponent
             }
         ]),
         SharedModule,
         CoreModule,
-        IonicModule
+        IonicModule,
+        ReactiveFormsModule
     ]
 })
 export class WhistModule {

@@ -19,5 +19,4 @@ export class WhistOverviewContainerComponent implements OnInit {
     public ngOnInit(): void {
         this.playerService.getAllPlayers().then(players => this.players = players);
     }
-
 }

@@ -1,0 +1,92 @@
+<app-header [title]="game.name + ' - calculate score'"></app-header>
+<ion-content [formGroup]="form">
+    <ng-container [ngTemplateOutlet]="selectCall"></ng-container>
+    <ng-container [ngSwitch]="call?.majorType">
+        <ng-container  *ngSwitchCase="CallType.REGULAR">
+            <ng-container [ngTemplateOutlet]="selectCaller"></ng-container>
+            <ng-container *ngIf="!!caller" [ngTemplateOutlet]="selectPartner"></ng-container>
+            <ng-container *ngIf="!!partner" [ngTemplateOutlet]="selectTargetSticks"></ng-container>
+            <ng-container *ngIf="!!targetSticks" [ngTemplateOutlet]="selectAcquiredSticks"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="CallType.SUN">
+            <ng-container [ngTemplateOutlet]="selectCaller"></ng-container>
+            <ng-container *ngIf="!!caller" [ngTemplateOutlet]="selectSunWinningCondition"></ng-container>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #selectCall>
+        <ion-item lines="none">
+            <ion-label>Select call</ion-label>
+            <ion-select interface="popover" formControlName="call" placeholder="Select">
+                <ion-select-option *ngFor="let call of calls" [value]="call">
+                    {{call.name}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ng-template>
+
+    <ng-template #selectCaller>
+        <ion-item  lines="none">
+            <ion-label>Select caller</ion-label>
+            <ion-select interface="popover" formControlName="caller" placeholder="Select">
+                <ion-select-option *ngFor="let player of players" [value]="player">
+                    {{player.name}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ng-template>
+
+    <ng-template #selectPartner>
+        <ion-item lines="none">
+            <ion-label>Select partner</ion-label>
+            <ion-select interface="popover" placeholder="Select" formControlName="partner">
+                <ion-select-option *ngFor="let player of remainingPlayers" [value]="player">
+                    {{player.name}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ng-template>
+
+    <ng-template #selectTargetSticks>
+        <ion-item lines="none">
+            <ion-label>Select target sticks</ion-label>
+            <ion-select interface="popover" formControlName="targetSticks" placeholder="Select">
+                <ion-select-option *ngFor="let stick of validTargetSticks">
+                    {{stick}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ng-template>
+
+    <ng-template #selectAcquiredSticks>
+        <ion-item lines="none">
+            <ion-label>Select acquired sticks</ion-label>
+            <ion-select interface="popover" formControlName="acquiredSticks" placeholder="Select">
+                <ion-select-option *ngFor="let stick of validAcquiredSticks">
+                    {{stick}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ng-template>
+
+    <ng-template #selectSunWinningCondition>
+        <ion-list>
+            <ion-radio-group formControlName="sunWinningCondition">
+                <ion-item lines="none">
+                    <ion-label>Won</ion-label>
+                    <ion-radio slot="start" [value]="true"></ion-radio>
+                </ion-item>
+
+                <ion-item lines="none">
+                    <ion-label>Lost</ion-label>
+                    <ion-radio slot="start" [value]="false"></ion-radio>
+                </ion-item>
+            </ion-radio-group>
+        </ion-list>
+    </ng-template>
+</ion-content>
+<ion-footer>
+    <ion-button expand="block" [disabled]="!form.valid">
+        Calculate
+    </ion-button>
+</ion-footer>
