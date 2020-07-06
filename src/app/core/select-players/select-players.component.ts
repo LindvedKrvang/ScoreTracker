@@ -4,7 +4,8 @@ import {Player} from '../../shared/model/Player';
 import {EditNameComponent} from '../edit-name/edit-name.component';
 import {PlayerService} from '../../shared/services/player.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Game, ScoreBoard, Whist} from '../../shared/model/Game';
+import {Game} from '../../shared/model/Game';
+import {GameRound} from '../../shared/model/GameRound';
 
 @Component({
     selector: 'app-select-players',
@@ -121,6 +122,7 @@ export class SelectPlayersComponent implements OnInit {
     }
 
     public navigateToSelectedGame(): void {
+        this.playerService.addInitialUndoStep({players: this.players} as GameRound);
         this.router.navigate([this.game.gameType]);
     }
 }

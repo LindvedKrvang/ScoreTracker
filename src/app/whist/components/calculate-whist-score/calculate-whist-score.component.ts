@@ -6,6 +6,7 @@ import {PlayerService} from '../../../shared/services/player.service';
 import {Player} from '../../../shared/model/Player';
 import {WhistCalculatorService} from '../../services/whist-calculator.service';
 import {NavController} from '@ionic/angular';
+import {GameRound} from '../../../shared/model/GameRound';
 
 const NO_PARTNER = 'No partner';
 
@@ -92,6 +93,7 @@ export class CalculateWhistScoreComponent implements OnInit {
     public handleCalculateClicked(): void {
         this.whistCalculatorService.calculateScore(this.form.value, this.players);
         this.playerService.updateAllPlayers(this.players);
+        this.playerService.addGameRound({players: this.players} as GameRound);
         this.navController.back();
     }
 

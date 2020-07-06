@@ -23,6 +23,9 @@
             <ion-fab-button (click)="goBack()">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </ion-fab-button>
+            <ion-fab-button *ngIf="ableToUndo" [color]="'danger'" (click)="toggleUndoAlert()">
+                <ion-icon name="arrow-undo"></ion-icon>
+            </ion-fab-button>
         </ion-fab-list>
         <ion-fab-list [side]="'end'">
             <ion-item [lines]="'none'">
