@@ -6,7 +6,7 @@ import {SharedModule} from '../shared/shared.module';
 import {CoreModule} from '../core/core.module';
 import {IonicModule} from '@ionic/angular';
 import {CalculateWhistScoreComponent} from './components/calculate-whist-score/calculate-whist-score.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {WhistCalculatorService} from './services/whist-calculator.service';
 
 @NgModule({
@@ -29,7 +29,8 @@ import {WhistCalculatorService} from './services/whist-calculator.service';
         SharedModule,
         CoreModule,
         IonicModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     providers: [
         WhistCalculatorService
