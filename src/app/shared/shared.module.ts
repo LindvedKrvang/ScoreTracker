@@ -5,6 +5,7 @@ import {GameResolver} from './resolves/game.resolver';
 import {GameService} from './services/game.service';
 import {HeaderComponent} from './components/header/header.component';
 import {IonicModule} from '@ionic/angular';
+import {ScoreService} from './services/score.service';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import {IonicModule} from '@ionic/angular';
     providers: [
         PlayerService,
         GameResolver,
-        GameService
+        GameService,
+        ScoreService
     ],
     exports: [
         HeaderComponent

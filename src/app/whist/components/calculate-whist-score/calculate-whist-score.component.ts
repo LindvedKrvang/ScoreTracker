@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {Call, Calls, CallType} from '../../model/Call';
 import {PlayerService} from '../../../shared/services/player.service';
 import {Player} from '../../../shared/model/Player';
+import {WhistCalculatorService} from '../../services/whist-calculator.service';
+import {NavController} from '@ionic/angular';
 
 const NO_PARTNER = 'No partner';
 
@@ -25,7 +27,9 @@ export class CalculateWhistScoreComponent implements OnInit {
     public CallType: typeof CallType = CallType;
 
     constructor(private fb: FormBuilder,
-                private playerService: PlayerService) {
+                private playerService: PlayerService,
+                private whistCalculatorService: WhistCalculatorService,
+                private navController: NavController) {
     }
 
     ngOnInit(): void {
@@ -79,9 +83,16 @@ export class CalculateWhistScoreComponent implements OnInit {
             this.remainingPlayers = this.players;
             this.remainingPlayers = this.remainingPlayers.filter(player => player.id !== selectedPlayer.id);
             this.remainingPlayers.push({
-                name: NO_PARTNER
+                name: NO_PARTNER,
+                id: -1
             } as Player);
         });
+    }
+
+    public handleCalculateClicked(): void {
+        this.whistCalculatorService.calculateScore(this.form.value, this.players);
+        this.playerService.updateAllPlayers(this.players);
+        this.navController.back();
     }
 
     get call(): Call {

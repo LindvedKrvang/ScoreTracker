@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Player} from '../../../shared/model/Player';
 import {ModalController, NavController} from '@ionic/angular';
 import {ChangeScoreComponent} from '../change-score/change-score.component';
-import {ScoreService} from '../../services/score.service';
+import {ScoreService} from '../../../shared/services/score.service';
 import {PlayerService} from '../../../shared/services/player.service';
 
 

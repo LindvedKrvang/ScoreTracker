@@ -6,7 +6,7 @@ import {PlayerService} from '../../../shared/services/player.service';
 import {AngularDelegate, ModalController} from '@ionic/angular';
 import {RouterTestingModule} from '@angular/router/testing';
 import {PlayerServiceMock} from '../../../shared/mocks/player.service.mock';
-import {ScoreService} from '../../services/score.service';
+import {ScoreService} from '../../../shared/services/score.service';
 
 describe('OverviewComponent', () => {
     let component: OverviewComponent;

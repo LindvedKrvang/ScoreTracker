@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Player} from '../../shared/model/Player';
-import {ErrorService} from '../../shared/services/error.service';
+import {Player} from '../model/Player';
+import {ErrorService} from './error.service';
 
 @Injectable()
 export class ScoreService {

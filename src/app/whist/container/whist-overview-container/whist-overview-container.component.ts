@@ -17,6 +17,9 @@ export class WhistOverviewContainerComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+    }
+
+    ionViewWillEnter(): void {
         this.playerService.getAllPlayers().then(players => this.players = players);
     }
 }

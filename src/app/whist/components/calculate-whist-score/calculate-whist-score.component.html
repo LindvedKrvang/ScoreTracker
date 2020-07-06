@@ -86,7 +86,7 @@
     </ng-template>
 </ion-content>
 <ion-footer>
-    <ion-button expand="block" [disabled]="!form.valid">
+    <ion-button expand="block" [disabled]="!form.valid" (click)="handleCalculateClicked()">
         Calculate
     </ion-button>
 </ion-footer>

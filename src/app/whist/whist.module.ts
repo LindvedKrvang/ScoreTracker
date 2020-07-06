@@ -7,6 +7,7 @@ import {CoreModule} from '../core/core.module';
 import {IonicModule} from '@ionic/angular';
 import {CalculateWhistScoreComponent} from './components/calculate-whist-score/calculate-whist-score.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {WhistCalculatorService} from './services/whist-calculator.service';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,9 @@ import {ReactiveFormsModule} from '@angular/forms';
         CoreModule,
         IonicModule,
         ReactiveFormsModule
+    ],
+    providers: [
+        WhistCalculatorService
     ]
 })
 export class WhistModule {

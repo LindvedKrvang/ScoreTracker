@@ -7,10 +7,18 @@ import {PlayerService} from '../../../shared/services/player.service';
 import {PlayerServiceMock} from '../../../shared/mocks/player.service.mock';
 import {Regular, Sun} from '../../model/Call';
 import {mockPlayers} from '../../../shared/model/Player';
+import {WhistCalculatorService} from '../../services/whist-calculator.service';
+import {WhistCalculatorMockService} from '../../mocks/whist-calculator.mock.service';
+import createSpy = jasmine.createSpy;
+import {NavController} from '@ionic/angular';
 
 describe('CalculateWhistScoreComponent', () => {
     let component: CalculateWhistScoreComponent;
     let fixture: ComponentFixture<CalculateWhistScoreComponent>;
+
+    const mockNavController = {
+        back: createSpy('back')
+    };
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -21,6 +29,14 @@ describe('CalculateWhistScoreComponent', () => {
                 {
                     provide: PlayerService,
                     useClass: PlayerServiceMock
+                },
+                {
+                    provide: WhistCalculatorService,
+                    useClass: WhistCalculatorMockService
+                },
+                {
+                    provide: NavController,
+                    useValue: mockNavController
                 }
             ]
         })

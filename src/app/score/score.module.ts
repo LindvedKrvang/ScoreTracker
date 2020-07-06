@@ -6,7 +6,7 @@ import {CoreModule} from '../core/core.module';
 import {IonicModule} from '@ionic/angular';
 import {ChangeScoreComponent} from './components/change-score/change-score.component';
 import {FormsModule} from '@angular/forms';
-import {ScoreService} from './services/score.service';
+import {ScoreService} from '../shared/services/score.service';
 
 @NgModule({
     declarations: [OverviewComponent, ChangeScoreComponent],
@@ -24,7 +24,6 @@ import {ScoreService} from './services/score.service';
         FormsModule
     ],
     providers: [
-        ScoreService
     ]
 })
 export class ScoreModule {
