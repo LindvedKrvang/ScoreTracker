@@ -73,7 +73,7 @@ export class PlayerService {
 
     public async addInitialUndoStep(gameRound: GameRound): Promise<void> {
         await this.storage.get(KEY_GAME_ROUNDS).then((gameRounds: GameRound[]) => {
-            if (gameRounds.length > 0) {
+            if (!!gameRounds && gameRounds.length > 0) {
                 return;
             }
             this.storage.set(KEY_GAME_ROUNDS, [gameRound]);
