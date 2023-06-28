@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage';
-import {Game, ScoreBoard, Whist} from '../model/Game';
+import {Game, NoGame, ScoreBoard, Whist} from '../model/Game';
 
 export const KEY_SELECTED_GAME: string = 'KEY_SELECTED_GAME';
 
@@ -22,7 +22,7 @@ export class GameService {
                 case ScoreBoard.gameType:
                     return ScoreBoard;
                 default:
-                    return null;
+                    return NoGame;
             }
         });
     }

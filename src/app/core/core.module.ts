@@ -10,8 +10,8 @@ import {GameResolver} from '../shared/resolves/game.resolver';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
-    entryComponents: [
-        EditNameComponent
+    bootstrap: [
+      EditNameComponent
     ],
     declarations: [
         SelectPlayersComponent,

@@ -1,7 +1,7 @@
 <app-header [title]="game.name + ' - calculate score'"></app-header>
-<ion-content [formGroup]="form">
+<ion-content *ngIf="form" [formGroup]="form">
     <ng-container [ngTemplateOutlet]="selectCall"></ng-container>
-    <ng-container [ngSwitch]="call?.majorType">
+    <ng-container [ngSwitch]="call.majorType">
         <ng-container  *ngSwitchCase="CallType.REGULAR">
             <ng-container [ngTemplateOutlet]="selectCaller"></ng-container>
             <ng-container *ngIf="!!caller" [ngTemplateOutlet]="selectPartner"></ng-container>
@@ -86,7 +86,7 @@
     </ng-template>
 </ion-content>
 <ion-footer>
-    <ion-button expand="block" [disabled]="!form.valid" (click)="handleCalculateClicked()">
+    <ion-button expand="block" [disabled]="!form?.valid" (click)="handleCalculateClicked()">
         Calculate
     </ion-button>
 </ion-footer>

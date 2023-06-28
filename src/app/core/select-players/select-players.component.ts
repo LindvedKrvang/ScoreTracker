@@ -4,7 +4,7 @@ import {Player} from '../../shared/model/Player';
 import {EditNameComponent} from '../edit-name/edit-name.component';
 import {PlayerService} from '../../shared/services/player.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Game} from '../../shared/model/Game';
+import {Game, NoGame} from '../../shared/model/Game';
 import {GameRound} from '../../shared/model/GameRound';
 
 @Component({
@@ -14,7 +14,7 @@ import {GameRound} from '../../shared/model/GameRound';
 })
 export class SelectPlayersComponent implements OnInit {
 
-    public game: Game;
+    public game: Game = NoGame;
     public players: Player[] = [];
 
     constructor(private alertController: AlertController,
@@ -26,7 +26,7 @@ export class SelectPlayersComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.game = this.route.snapshot.data.game;
+        this.game = this.route.snapshot.data['game'];
     }
 
     ionViewWillEnter(): void {

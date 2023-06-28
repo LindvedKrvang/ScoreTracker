@@ -1,6 +1,6 @@
 import {Player} from '../../../shared/model/Player';
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Keyboard} from '@ionic-native/keyboard/ngx';
+import { Keyboard } from '@capacitor/keyboard';
 import {IonInput, ModalController} from '@ionic/angular';
 
 
@@ -8,34 +8,34 @@ import {IonInput, ModalController} from '@ionic/angular';
     selector: 'app-change-score',
     templateUrl: './change-score.component.html',
     styleUrls: ['./change-score.component.scss'],
-    providers: [Keyboard]
+    providers: []
 })
 export class ChangeScoreComponent implements OnInit {
 
-    @ViewChild('score', { static: true }) input: IonInput;
+    @ViewChild('score', { static: true }) input?: IonInput;
 
     @Input()
-    public player: Player;
+    public player?: Player;
 
-    constructor(private modalController: ModalController, private keyboard: Keyboard) {
+    constructor(private modalController: ModalController) {
     }
 
     ngOnInit(): void {
     }
 
     ionViewDidEnter(): void {
-        this.input.setFocus();
-        this.keyboard.show();
+        this.input?.setFocus();
+        Keyboard.show();
     }
 
     async closeModal(): Promise<void> {
         await this.modalController.dismiss();
     }
 
-    public submit(score: number): void {
-        this.modalController.dismiss({
-            score
-        });
+    public submit(score: number | string): void {
+      this.modalController.dismiss({
+          score
+      });
     }
 
     public cancel(): void {

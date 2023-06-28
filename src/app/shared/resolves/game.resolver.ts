@@ -1,15 +1,14 @@
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {Game, ScoreBoard, Whist} from '../model/Game';
+import {ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot} from '@angular/router';
+import {Game, NoGame, ScoreBoard, Whist} from '../model/Game';
 
-export class GameResolver implements Resolve<Game> {
-
-    public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Game {
-        const gameType: string = route.paramMap.get('gameType');
-        switch (gameType) {
-            case ScoreBoard.gameType:
-                return ScoreBoard;
-            case Whist.gameType:
-                return Whist;
-        }
-    }
+export const GameResolver: ResolveFn<Game> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Game => {
+  const gameType: string | null = route.paramMap.get('gameType');
+  switch (gameType) {
+    case ScoreBoard.gameType:
+      return ScoreBoard;
+    case Whist.gameType:
+      return Whist;
+    default:
+      return NoGame
+  }
 }

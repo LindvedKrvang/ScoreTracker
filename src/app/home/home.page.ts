@@ -10,14 +10,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-    public loadedGame: Game;
+    public loadedGame?: Game;
 
     constructor(private playerService: PlayerService,
                 private gameService: GameService) {
     }
 
     ngOnInit(): void {
-        this.gameService.loadSavedGame().then(loadedGame => this.loadedGame = loadedGame);
+        this.gameService.loadSavedGame().then((loadedGame: Game) => this.loadedGame = loadedGame);
     }
 
     newGame(): void {

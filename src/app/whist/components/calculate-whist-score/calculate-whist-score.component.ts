@@ -23,7 +23,7 @@ export class CalculateWhistScoreComponent implements OnInit {
     public calls: Call[] = Calls;
     public validTargetSticks: number[] = [7, 8, 9, 10, 11, 12, 13];
     public validAcquiredSticks: number[] = [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-    public form: FormGroup;
+    public form?: FormGroup;
 
     public CallType: typeof CallType = CallType;
 
@@ -48,7 +48,7 @@ export class CalculateWhistScoreComponent implements OnInit {
     }
 
     private updateValidators(): void {
-        this.form.get('call').valueChanges.subscribe((selectedCall: Call) => {
+        this.form?.get('call')?.valueChanges.subscribe((selectedCall: Call) => {
             switch (selectedCall.majorType) {
                 case CallType.REGULAR: {
                     this.updateValidator('partner', Validators.required);
@@ -68,18 +68,18 @@ export class CalculateWhistScoreComponent implements OnInit {
         });
     }
 
-    private updateValidator(control: string, validator: ValidatorFn): void {
-        this.form.get(control).setValidators(validator);
-        this.form.get(control).updateValueAndValidity();
+    private updateValidator(control: string, validator: ValidatorFn | null): void {
+        this.form?.get(control)?.setValidators(validator);
+        this.form?.get(control)?.updateValueAndValidity();
     }
 
     private updatePartner(): void {
-        this.form.get('caller').valueChanges.subscribe((selectedPlayer) => {
+      this.form?.get('caller')?.valueChanges.subscribe((selectedPlayer) => {
             if (!selectedPlayer) {
                 return;
             }
             if (this.partner && this.partner.id === selectedPlayer.id) {
-                this.form.get('partner').setValue(null);
+              this.form?.get('partner')?.setValue(null);
             }
             this.remainingPlayers = this.players;
             this.remainingPlayers = this.remainingPlayers.filter(player => player.id !== selectedPlayer.id);
@@ -91,25 +91,25 @@ export class CalculateWhistScoreComponent implements OnInit {
     }
 
     public handleCalculateClicked(): void {
-        this.whistCalculatorService.calculateScore(this.form.value, this.players);
+        this.whistCalculatorService.calculateScore(this.form?.value, this.players);
         this.playerService.updateAllPlayers(this.players);
         this.playerService.addGameRound({players: this.players} as GameRound);
         this.navController.back();
     }
 
     get call(): Call {
-        return this.form.get('call').value;
+      return this.form?.get('call')?.value;
     }
 
     get targetSticks(): number {
-        return this.form.get('targetSticks').value;
+        return this.form?.get('targetSticks')?.value;
     }
 
     get partner(): Player {
-        return this.form.get('partner').value;
+        return this.form?.get('partner')?.value;
     }
 
     get caller(): Player {
-        return this.form.get('caller').value;
+        return this.form?.get('caller')?.value;
     }
 }

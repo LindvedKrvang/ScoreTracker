@@ -5,8 +5,14 @@ export interface Game {
 }
 
 export enum GameType {
+    NO_GAME = 'NO_GAME',
     SCORE_BOARD= 'SCORE_BOARD',
     WHIST = 'WHIST'
+}
+
+export const NoGame: Game = {
+  name: '',
+  gameType: GameType.NO_GAME
 }
 
 export const ScoreBoard: Game = {

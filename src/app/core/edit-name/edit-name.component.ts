@@ -1,26 +1,25 @@
 import {Player} from '../../shared/model/Player';
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Keyboard} from '@ionic-native/keyboard/ngx';
+import { Keyboard } from '@capacitor/keyboard';
 import {IonInput, ModalController} from '@ionic/angular';
 
 @Component({
     selector: 'app-edit-name',
     templateUrl: './edit-name.component.html',
     styleUrls: ['./edit-name.component.scss'],
-    providers: [Keyboard]
+    providers: []
 })
 export class EditNameComponent implements OnInit {
 
-    @ViewChild('input', { static: true }) input: IonInput;
+    @ViewChild('input', { static: true }) input?: IonInput;
 
     @Input()
-    public title: string;
+    public title?: string;
 
     @Input()
-    public player: Player;
+    public player?: Player;
 
-    constructor(private modalController: ModalController,
-                private keyboard: Keyboard) {
+    constructor(private modalController: ModalController) {
     }
 
     ngOnInit(): void {
@@ -28,15 +27,15 @@ export class EditNameComponent implements OnInit {
     }
 
     ionViewDidEnter(): void {
-        this.input.setFocus();
-        this.keyboard.show();
+        this.input?.setFocus();
+        Keyboard.show();
     }
 
     async closeModal(): Promise<void> {
         await this.modalController.dismiss();
     }
 
-    public submit(name: string): void {
+    public submit(name: string | number): void {
         this.modalController.dismiss({
             name
         });

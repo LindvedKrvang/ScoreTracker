@@ -1,9 +1,9 @@
 <ion-content>
     <ion-card>
-        <ion-title (click)="closeModal()">{{player.name}}</ion-title>
+        <ion-title (click)="closeModal()">{{player?.name}}</ion-title>
         <ion-item lines="none">
             <ion-input #score type="number" inputmode="number" autofocus="true" placeholder="Enter score here..."></ion-input>
-            <ion-icon name="checkmark" slot="end" color="primary" (click)="submit(score.value)" size="large"></ion-icon>
+            <ion-icon name="checkmark" slot="end" color="primary" (click)="submit(score.value ?? '')" size="large"></ion-icon>
             <ion-icon name="close" slot="end" color="danger" (click)="cancel()" size="large"></ion-icon>
         </ion-item>
     </ion-card>

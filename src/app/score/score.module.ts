@@ -6,11 +6,12 @@ import {CoreModule} from '../core/core.module';
 import {IonicModule} from '@ionic/angular';
 import {ChangeScoreComponent} from './components/change-score/change-score.component';
 import {FormsModule} from '@angular/forms';
-import {ScoreService} from '../shared/services/score.service';
 
 @NgModule({
     declarations: [OverviewComponent, ChangeScoreComponent],
-    entryComponents: [ChangeScoreComponent],
+    bootstrap: [
+      ChangeScoreComponent
+    ],
     imports: [
         CommonModule,
         RouterModule.forChild([

@@ -3,6 +3,7 @@ import {Call, CallType} from '../model/Call';
 import {Player} from '../../shared/model/Player';
 import {TRICK_TABLE_SUN, TRICK_TABLES} from '../model/TrickTable';
 import {ScoreService} from '../../shared/services/score.service';
+import {rules} from '@typescript-eslint/eslint-plugin';
 
 export interface CalculateWhistInformation {
     call: Call;
@@ -28,10 +29,19 @@ export class WhistCalculatorService {
     }
 
     private calculateRegularScore(calculateInformation: CalculateWhistInformation, players: Player[]): void {
-        const trickTable: Map<CallType, Map<number, number>> = TRICK_TABLES.get(+calculateInformation.targetSticks);
-        const trickTableElement: Map<number, number> = trickTable.get(calculateInformation.call.callType);
+        const trickTable: Map<CallType, Map<number, number>> | undefined = TRICK_TABLES.get(+calculateInformation.targetSticks);
+        if (!trickTable) {
+            return;
+        }
+        const trickTableElement: Map<number, number> | undefined = trickTable.get(calculateInformation.call.callType);
+        if (!trickTableElement) {
+            return;
+        }
         const difference = calculateInformation.acquiredSticks - calculateInformation.targetSticks;
         const pointsToBeGiven = trickTableElement.get(difference);
+        if (!pointsToBeGiven) {
+            return
+        }
         const isSelfPartner = calculateInformation.partner.id === -1;
         if (isSelfPartner) {
             this.scoreService.addScore(calculateInformation.caller, pointsToBeGiven * 3);
@@ -51,6 +61,9 @@ export class WhistCalculatorService {
 
     private calculateSunScore(calculateInformation: CalculateWhistInformation, players: Player[]): void {
         const pointsToBeGiven = TRICK_TABLE_SUN.get(calculateInformation.call.callType);
+        if (!pointsToBeGiven) {
+            return
+        }
         const invertPoints: number = calculateInformation.sunWinningCondition ? 1 : -1;
         this.scoreService.addScore(calculateInformation.caller, pointsToBeGiven * invertPoints);
         const opposition = players.filter(player => player.id !== calculateInformation.caller.id);
