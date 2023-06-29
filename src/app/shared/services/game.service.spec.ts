@@ -64,7 +64,7 @@ describe('GameService', () => {
         it('should return null when no game is found', () => {
             const spy = spyOn(storage, 'get').and.returnValue(of(null).toPromise());
             service.loadSavedGame().then(result => {
-                expect(result).toBe(null);
+                expect(result).toBeNull();
                 expect(spy).toHaveBeenCalledWith(KEY_SELECTED_GAME);
             });
         });

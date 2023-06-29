@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage';
-import {Game, NoGame, ScoreBoard, Whist} from '../model/Game';
+import {Game, Mollky, NoGame, ScoreBoard, Whist} from '../model/Game';
 
 export const KEY_SELECTED_GAME: string = 'KEY_SELECTED_GAME';
 
@@ -21,6 +21,8 @@ export class GameService {
                     return Whist;
                 case ScoreBoard.gameType:
                     return ScoreBoard;
+              case Mollky.gameType:
+                    return Mollky
                 default:
                     return NoGame;
             }

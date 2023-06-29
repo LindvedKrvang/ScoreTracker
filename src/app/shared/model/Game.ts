@@ -7,7 +7,8 @@ export interface Game {
 export enum GameType {
     NO_GAME = 'NO_GAME',
     SCORE_BOARD= 'SCORE_BOARD',
-    WHIST = 'WHIST'
+    WHIST = 'WHIST',
+    MOLlKY = 'MOLlKY'
 }
 
 export const NoGame: Game = {
@@ -26,7 +27,13 @@ export const Whist: Game = {
     requiredPlayers: 4
 };
 
+export const Mollky: Game = {
+  name: 'Möllky',
+  gameType: GameType.MOLlKY
+}
+
 export const GAMES: Game[] = [
     ScoreBoard,
-    Whist
+    Whist,
+    Mollky
 ];

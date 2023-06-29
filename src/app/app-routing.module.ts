@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {ScoreBoard, Whist} from './shared/model/Game';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import { Mollky, ScoreBoard, Whist} from './shared/model/Game';
 
 const routes: Routes = [
   {
@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: Whist.gameType,
     loadChildren: () => import('./whist/whist.module').then(m => m.WhistModule)
+  },
+  {
+    path: Mollky.gameType,
+    loadChildren: () => import('./mollky/mollky.module').then(m => m.MollkyModule)
   }
 ];
 

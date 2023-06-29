@@ -1,0 +1,22 @@
+<app-header [title]="title"></app-header>
+<ion-content>
+  <div class="score">
+    <ion-label color="medium">
+      Current points: {{currentPlayer?.score}}
+    </ion-label>
+  </div>
+  <div *ngFor="let scoreGroup of availableScores" class="button-group">
+    <ion-button *ngFor="let score of scoreGroup" (click)="onScoreClicked(score)">{{score}}</ion-button>
+  </div>
+  <div class="button-group">
+    <ion-button (click)="onAssignMissClicked()">X</ion-button>
+  </div>
+  <div *ngIf="showMisses()" class="misses-container">
+    <ion-icon *ngFor="let miss of missesForCurrentPlayer" icon="close" color="danger" class="miss-icon"></ion-icon>
+  </div>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -5,7 +5,6 @@ import {GameService} from './services/game.service';
 import {HeaderComponent} from './components/header/header.component';
 import {IonicModule} from '@ionic/angular';
 import {ScoreService} from './services/score.service';
-import {StorageService} from './services/storage.service';
 
 @NgModule({
     declarations: [

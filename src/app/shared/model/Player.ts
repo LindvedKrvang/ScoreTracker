@@ -2,6 +2,7 @@ export interface Player {
     id: number;
     name: string;
     score: number;
+    gameMetaData?: any;
 }
 
 export const mockPlayers: Player[] = [

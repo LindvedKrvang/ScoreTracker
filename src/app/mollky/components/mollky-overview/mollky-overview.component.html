@@ -1,0 +1,44 @@
+<app-header [title]="game.name"></app-header>
+<ion-content class="ion-justify-content-end">
+  <ion-list>
+    <ion-card *ngFor="let player of players">
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-card-title color="medium" [color]="getColorForName(player)">
+            {{player.name}}
+          </ion-card-title>
+          <ion-label slot="end">
+            {{player.score}}
+          </ion-label>
+          <ion-icon *ngFor="let miss of getMissArrayForPlayer(player)" icon="close" color="danger"></ion-icon>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" *ngIf="enoughViablePlayers">
+    <ion-fab-button (click)="goToScore()">
+      <ion-icon name="calculator-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" *ngIf="!enoughViablePlayers">
+    <ion-fab-button (click)="startNewGame()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+        <ion-title *ngIf="enoughViablePlayers">
+          Up next: {{currentPlayer?.name}}
+        </ion-title>
+        <ion-title *ngIf="!enoughViablePlayers">
+          Not enough viable players
+        </ion-title>
+  </ion-toolbar>
+</ion-footer>
