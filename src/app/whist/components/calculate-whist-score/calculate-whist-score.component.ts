@@ -97,7 +97,7 @@ export class CalculateWhistScoreComponent implements OnInit {
         this.navController.back();
     }
 
-    get call(): Call {
+    get call(): Call | undefined {
       return this.form?.get('call')?.value;
     }
 

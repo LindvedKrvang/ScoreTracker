@@ -29,10 +29,7 @@
         </ion-fab-list>
         <ion-fab-list [side]="'end'">
             <ion-item [lines]="'none'">
-                <ion-toggle [(ngModel)]="sortByScore" (click)="toggleSortByScore()"></ion-toggle>
-                <ion-label>
-                    Sort by score
-                </ion-label>
+                <ion-toggle [(ngModel)]="sortByScore" (click)="toggleSortByScore()">Sort by score</ion-toggle>
             </ion-item>
         </ion-fab-list>
     </ion-fab>
